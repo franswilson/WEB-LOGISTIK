@@ -62,9 +62,11 @@
                     </div>
 
                     <div class="text-center p-t-90">
-                        <a class="txt1" href="<?= base_url() ?>assets/Login/#">
-                            register..??
+                        <a class="txt1" href="register">
+                            register
+
                         </a>
+
                     </div>
                 </form>
             </div>
