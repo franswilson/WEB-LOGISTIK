@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100" data-placeholder="&#xf191;"></span>
                     </div>
 
@@ -62,8 +62,8 @@
                     </div>
 
                     <div class="text-center p-t-90">
-                        <a class="txt1" href="register">
-                            register
+                        <a class="txt1" href="<?= base_url('auth/register'); ?>">
+                            create account
 
                         </a>
 
