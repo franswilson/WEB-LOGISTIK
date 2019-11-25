@@ -11,7 +11,16 @@ class Auth extends CI_Controller
 
     public function login()
     {
+
         $this->load->view('login');
+        check_already_login();
+    }
+
+    public function logout()
+    {
+        $params = array('id_user', 'level');
+        $this->session->unset_userdata($params);
+        redirect('auth/login');
     }
 
     public function register()
@@ -29,7 +38,6 @@ class Auth extends CI_Controller
             $data = [
                 'username' => $this->input->post('username', true),
                 'password' => $this->input->post('password', true),
-
                 'address' => $this->input->post('address', true),
                 'email' => $this->input->post('email', true),
                 'telp' => $this->input->post('telp', true),
@@ -48,9 +56,21 @@ class Auth extends CI_Controller
             $this->load->model('user_m', 'user');
             $query = $this->user->login($post);
             if ($query->num_rows() > 0) {
-                echo "login berhasil";
+                $row = $query->row();
+                $params = array(
+                    'id_user' => $row->id_user,
+                    'level' => $row->level
+                );
+                $this->session->set_userdata($params);
+                echo "<script> 
+                alert('selamat, login berhasil');
+                window.location='" . site_url('dashboard') . "';
+                </script>";
             } else {
-                echo "login gagal";
+                echo "<script> 
+                alert('maaf, login gagal');
+                window.location='" . site_url('auth/login') . "';
+                </script>";
             }
         }
     }

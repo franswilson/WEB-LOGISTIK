@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Sign Up</title>
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/regis/fonts/material-icon/css/material-design-iconic-font.min.css">
 
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="signup-content">
                     <form method="POST" action="<?= base_url('auth/register') ?>" id="signup-form" class="signup-form">
-                        <h2 class="form-title">Create account</h2>
+                        <h2 class="form-title">Create your account</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="username" id="username" placeholder="Your Name" />
                             <?= form_error('username'); ?>
