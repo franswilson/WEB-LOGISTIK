@@ -9,12 +9,16 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="<?= base_url() ?>assets/Login/images/icons/user.png" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/skins/_all-skins.min.css">
@@ -201,7 +205,21 @@
               </i> <span>dashboard</span></a></li>
 
           <?php if ($this->session->userdata('level') == 1) { ?>
-            <li class="active treeview menu-open">
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-user"></i> <span>pegawai</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<?= site_url('pegawai') ?>"><i class="fa fa-circle-o"></i> data pegawai</a></li>
+              </ul>
+            </li>
+          <?php } ?>
+
+          <?php if ($this->session->userdata('level') == 1) { ?>
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-user"></i> <span>user</span>
                 <span class="pull-right-container">
@@ -210,17 +228,11 @@
               </a>
               <ul class="treeview-menu">
                 <li class="active"><a href="<?= site_url('user') ?>"><i class="fa fa-circle-o"></i> data user</a></li>
-
               </ul>
             </li>
           <?php } ?>
 
-
-
-
-
-
-
+          <div><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
       </section>
       <!-- /.sidebar -->
     </aside>
@@ -231,10 +243,6 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <?php echo $contents ?>
-
-      <!-- Main content -->
-
-      <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
@@ -243,13 +251,6 @@
 
     </footer>
 
-
-    <div class="form-group">
-      <label class="control-sidebar-subheading">
-        Turn off notifications
-        <input type="checkbox" class="pull-right">
-      </label>
-    </div>
     <!-- /.form-group -->
 
     immediately after the control sidebar -->
@@ -269,11 +270,25 @@
   <script src="<?= base_url() ?>assets/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url() ?>assets/dist/js/demo.js"></script>
+
+
+
+  <script src="<?= base_url() ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url() ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#table1').DataTable()
+    })
+  </script>
+
+
   <script>
     $(document).ready(function() {
       $('.sidebar-menu').tree()
     })
   </script>
+
+
 </body>
 
 </html>

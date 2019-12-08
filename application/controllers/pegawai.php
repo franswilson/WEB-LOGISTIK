@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class kurir extends CI_Controller
+class pegawai extends CI_Controller
 {
 
     public function index()
     {
-        $this->template->load('template', 'kurir/data_kurir');
+
+        $this->template->load('template', 'pegawai/data_pegawai');
     }
 }
