@@ -44,6 +44,12 @@ class user_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+    public function banyak_users()
+    {
+        $this->db->from('user_count');
+        $query = $this->db->get();
+        return $query->result_object();
+    }
 
     public function add($post)
     {

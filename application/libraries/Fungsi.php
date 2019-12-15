@@ -16,4 +16,12 @@ class Fungsi
         $user_data = $this->ci->user_m->get($id_user)->row();
         return $user_data;
     }
+
+    function tampilan()
+    {
+        $this->ci->load->model('user_m');
+        $id_user = $this->ci->session->userdata('id_user');
+        $user_data = $this->ci->user_m->get($id_user)->row();
+        return $user_data;
+    }
 }

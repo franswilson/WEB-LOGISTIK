@@ -18,7 +18,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  
+
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/skins/_all-skins.min.css">
@@ -56,6 +56,8 @@
           <span class="icon-bar"></span>
         </a>
 
+        <span style="display:block; width: 80%; float: left;  background: #f4f5f7"></span>
+
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
@@ -84,6 +86,8 @@
 
           </ul>
           </li>
+
+
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
 
@@ -198,7 +202,7 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MAIN NAVIGATION</li>
+          <li class="header">MENU</li>
 
           <li><a href="<?= site_url('dashboard') ?>">
               <i class="fa fa-area-chart">
@@ -207,7 +211,7 @@
           <?php if ($this->session->userdata('level') == 1) { ?>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-user"></i> <span>pegawai</span>
+                <i class="fa fa-group"></i> <span>pegawai</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -232,9 +236,20 @@
             </li>
           <?php } ?>
 
-          <div><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>
-      </section>
-      <!-- /.sidebar -->
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-truck"></i> <span>Ongkir</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="active"><a href="<?= site_url('ongkir') ?>"><i class="fa fa-circle-o"></i>Cek Ongkir</a></li>
+            </ul>
+          </li>
+
+
+          <!-- /.sidebar -->
     </aside>
 
     <!-- =============================================== -->
@@ -246,15 +261,11 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
 
-    </footer>
 
     <!-- /.form-group -->
 
-    immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
+
   </div>
   <!-- ./wrapper -->
 

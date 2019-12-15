@@ -61,11 +61,12 @@ class Auth extends CI_Controller
                     'id_user' => $row->id_user,
                     'level' => $row->level
                 );
-                $this->session->set_userdata($params);
-                echo "<script> 
+                $this->session->set_userdata($params); {
+                    echo "<script> 
                 alert('selamat, login berhasil');
-                window.location='" . site_url('dashboard') . "';
+                window.location='" . site_url('dashboard')  . "';
                 </script>";
+                }
             } else {
                 echo "<script> 
                 alert('maaf, login gagal');

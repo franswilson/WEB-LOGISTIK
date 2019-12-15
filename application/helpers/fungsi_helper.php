@@ -26,3 +26,12 @@ function check_admin()
         redirect('dashboard');
     }
 }
+
+function check_user()
+{
+    $ci = &get_instance();
+    $ci->load->library('fungsi');
+    if ($ci->fungsi->user_login()->level != 2) {
+        redirect('dashboard_u');
+    }
+}

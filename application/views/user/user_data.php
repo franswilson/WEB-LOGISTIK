@@ -2,7 +2,7 @@
 <section class="content">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-tittle">data user</h3>
+            <h3 class="box-tittle">DATA USER</h3>
         </div>
 
 
