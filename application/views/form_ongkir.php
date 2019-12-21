@@ -82,26 +82,26 @@
                             <form>
                                 <div class="form-group">
                                     <label for="formGroupExampleInput">Provinsi Asal</label>
-                                    <select onChange="get_kota('asal')" id="provinsi_asal" class="form-control provinsi">
+                                    <select onChange="get_kota('asal')" name="provinsi_asal" id="provinsi_asal" class="form-control provinsi">
 
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="formGroupExampleInput">Kota Asal</label>
-                                    <select id="kota_asal" class="form-control">
+                                    <select name="kota_asal" id="kota_asal" class="form-control">
 
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="formGroupExampleInput">Provinsi Tujuan</label>
-                                    <select id="provinsi_tujuan" onChange="get_kota('tujuan')" class="form-control provinsi">
+                                    <select name="provinsi_tujuan" id="provinsi_tujuan" onChange="get_kota('tujuan')" class="form-control provinsi">
 
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="formGroupExampleInput">Kota Tujuan</label>
-                                    <select id="kota_tujuan" class="form-control">
+                                    <select name="kota_tujuan" id="kota_tujuan" class="form-control">
 
                                     </select>
                                 </div>
@@ -123,76 +123,78 @@
                                 <div class="form-group">
                                     <label for="service">Service</label>
                                     <select name="service" id="service" class="form-control">
-
                                     </select>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
+                <div class="box-footer">
+                    <div class=" col-md-4 col-md-offset-4">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
 
+                    <script type="text/javascript">
+                        $(function() {
+                            $.get("<?= site_url('ongkir/get_provinsi') ?>", {}, (response) => {
+                                let output = '';
+                                let provinsi = response.rajaongkir.results
+                                console.log(response)
 
-                <script type="text/javascript">
-                    $(function() {
-                        $.get("<?= site_url('ongkir/get_provinsi') ?>", {}, (response) => {
-                            let output = '';
-                            let provinsi = response.rajaongkir.results
-                            console.log(response)
-
-                            provinsi.map((val, i) => {
-                                output += `<option value="${val.province_id}" >${val.province}
+                                provinsi.map((val, i) => {
+                                    output += `<option value="${val.province_id}" >${val.province}
 		
 				</option>`
+                                })
+                                $('.provinsi').html(output)
+
                             })
-                            $('.provinsi').html(output)
+                        });
 
-                        })
-                    });
+                        function get_kota(type) {
+                            let id_provinsi = $(`#provinsi_${type}`).val();
+                            $.get("<?= site_url('ongkir/get_kota/') ?>" + id_provinsi, {}, (response) => {
+                                let output = '';
+                                let kota = response.rajaongkir.results
+                                console.log(response)
 
-                    function get_kota(type) {
-                        let id_provinsi = $(`#provinsi_${type}`).val();
-                        $.get("<?= site_url('ongkir/get_kota/') ?>" + id_provinsi, {}, (response) => {
-                            let output = '';
-                            let kota = response.rajaongkir.results
-                            console.log(response)
-
-                            kota.map((val, i) => {
-                                output += `<option value="${val.city_id}" >${val.city_name}
+                                kota.map((val, i) => {
+                                    output += `<option value="${val.city_id}" >${val.city_name}
 				
 					</option>`
+                                })
+                                $(`#kota_${type}`).html(output)
+
                             })
-                            $(`#kota_${type}`).html(output)
+                        }
 
-                        })
-                    }
+                        function get_ongkir() {
+                            let berat = $('#berat').val();
+                            let asal = $('#kota_asal').val();
+                            let tujuan = $('#kota_tujuan').val();
+                            let kurir = $('#kurir').val();
+                            let output = '';
 
-                    function get_ongkir() {
-                        let berat = $('#berat').val();
-                        let asal = $('#kota_asal').val();
-                        let tujuan = $('#kota_tujuan').val();
-                        let kurir = $('#kurir').val();
-                        let output = '';
+                            $.get("<?= site_url('ongkir/get_biaya/') ?>" + `${asal}/${tujuan}/${berat}/${kurir}`, {}, (response) => {
+                                console.log(response);
+                                let biaya = response.rajaongkir.results
 
-                        $.get("<?= site_url('ongkir/get_biaya/') ?>" + `${asal}/${tujuan}/${berat}/${kurir}`, {}, (response) => {
-                            console.log(response);
-                            let biaya = response.rajaongkir.results
+                                console.log(biaya)
 
-                            console.log(biaya)
-
-                            biaya.map((val, i) => {
-                                for (var i = 0; i < val.costs.length; i++) {
-                                    let jenis_layanan = val.costs[i].service
-                                    val.costs[i].cost.map((val, i) => {
-                                        output += `<option value="${val.value}" >${jenis_layanan} 
+                                biaya.map((val, i) => {
+                                    for (var i = 0; i < val.costs.length; i++) {
+                                        let jenis_layanan = val.costs[i].service
+                                        val.costs[i].cost.map((val, i) => {
+                                            output += `<option value="${val.value}" >${jenis_layanan} 
                                         -Rp.${val.value} ${val.etd} Hari  </option>`
-                                    })
-                                }
-                            })
-                            $(`#service`).html(output)
+                                        })
+                                    }
+                                })
+                                $(`#service`).html(output)
 
-                        })
-                    }
-                </script>
+                            })
+                        }
+                    </script>
 
             </body>
         </body>

@@ -61,9 +61,6 @@
                                 <option value="">- Pilih -</option>
                                 <option value="1" <?= set_value('level') == 1 ? "selected" : null ?>>ADMIN</option>
                                 <option value="2" <?= set_value('level') == 2 ? "selected" : null ?>>USER</option>
-
-
-
                             </select>
                         </div>
 

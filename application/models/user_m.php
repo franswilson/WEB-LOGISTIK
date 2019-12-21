@@ -61,4 +61,10 @@ class user_m extends CI_Model
         $params['level'] = $post['level'];
         $this->db->insert('user', $params);
     }
+
+    public function count_row()
+    {
+        $query = $this->db->query('SELECT * FROM user');
+        return $query->num_rows();
+    }
 }

@@ -10,59 +10,70 @@
   </ol>
 
 
-  <div class="col-md-15">
-    <!-- Info Boxes Style 2 -->
-    <div class="info-box bg-gray">
-      <span class="info-box-icon"><i class="fa fa-user"></i></span>
+  <!-- /.info-box -->
+  <!-- /.info-box -->
+  <div class="row">
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-aqua">
+        <div class="inner">
+          <h3>150</h3>
 
-      <div class="info-box-content">
-        <span class="info-box-text">USER</span>
-        <span class="info-box-number"><?php $id ?></span>
-
-        <div class="progress">
-          <div class="progress-bar" style="width: 50%"></div>
+          <p>New Orders</p>
         </div>
-        <span class="progress-description">
-          50% Increase in 30 Days
-        </span>
-      </div>
-      <!-- /.info-box-content -->
-    </div>
-    <!-- /.info-box -->
-    <div class="info-box bg-gray">
-      <span class="info-box-icon"><i class="fa fa-group"></i></span>
-
-      <div class="info-box-content">
-        <span class="info-box-text">PEGAWAI</span>
-        <span class="info-box-number"><?= $this->fungsi->tampilan()->id_user ?></span>
-
-        <div class="progress">
-          <div class="progress-bar" style="width: 20%"></div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
         </div>
-        <span class="progress-description">
-          20% Increase in 30 Days
-        </span>
+        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
-      <!-- /.info-box-content -->
     </div>
-    <!-- /.info-box -->
-    <div class="info-box bg-gray">
-      <span class="info-box-icon"><i class="fa fa-automobile"></i></span>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-green">
+        <div class="inner">
+          <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-      <div class="info-box-content">
-        <span class="info-box-text">PENGIRIMAN</span>
-        <span class="info-box-number">114</span>
-
-        <div class="progress">
-          <div class="progress-bar" style="width: 70%"> </div>
+          <p>Bounce Rate</p>
         </div>
-        <span class="progress-description">
-          70% Increase in 30 Days
-        </span>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
-      <!-- /.info-box-content -->
     </div>
-    <!-- /.info-box -->
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <h3><?php echo $test1; ?></h3>
+
+          <p>User Registrations</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="<?= site_url('user') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right">must be admin</i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-red">
+        <div class="inner">
+          <h3><?php echo $test2; ?></h3>
+
+          <p>Pegawai</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-group"></i>
+        </div>
+        <a href="<?= site_url('pegawai') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right">must be admin</i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+  </div>
 
 
 </section>

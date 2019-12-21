@@ -41,4 +41,10 @@ class pegawai_m extends CI_Model
         $params['telp'] = $post['telp'];
         $this->db->insert('pegawai', $params);
     }
+
+    public function count_row()
+    {
+        $query = $this->db->query('SELECT * FROM pegawai');
+        return $query->num_rows();
+    }
 }
